@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Smp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <section class="header" id="header">
+        <nav>
+            <a href="index.html"><img src="assets/logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-regular fa-circle-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Store</a></li>
+                    <li><a href="">Vote</a></li>
+                    <li><a href="">Server Ip</a></li>
+                    <li><a href="">Staff</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">About Us</a></li>
+                </ul>
+            </div>
+                <i class="fa-regular fa-solid fa-bars" onclick="showMenu()" id="bar"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>Try Smp <br>Minecraft Network</h1>
+            <p class="sp">Try Smp is One of the Biggest Survival Servers in Sri Lanka</p>
+            <p><a href="" class="play_btn">Play Now</a></p>
+        </div>
+    </section>
+
+<!------JavaScript for toggle Menu----  -->
+
+    <script>
+        
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+
+        function hideMenu(){
+            navLinks.style.right="-500px";
+        }
+        
+    </script>
+</body>
+</html>
