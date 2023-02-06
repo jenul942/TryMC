@@ -26,8 +26,9 @@ nav img{
 }
 
 .nav-links{
+    position: relative;
     flex: 1;
-    text-align: right;
+    margin-left: 5%;
 }
 
 .nav-links ul li{
@@ -76,6 +77,8 @@ nav img{
 
 .text-box h1{
     font-size: 80px;
+    color: darkorange;
+    font-weight: lighter;
 }
 
 .play_btn{
@@ -97,7 +100,7 @@ nav img{
 }
 
 .sp{
-    color: #6fe012b0;
+    color: deepskyblue;
     font-family: "hp";
     font-size: 24px;
     margin-top: 1.5%;
