@@ -116,8 +116,69 @@ nav .fa-regular{
     display: none;
 }
 
+.online-players{
+    max-width: 100%;
+    min-height: 50vh;
+    width: 100%;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+.text-online{
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ip{
+    font-family: "ulfont";
+    font-size: 26px;
+    font-weight: lighter;
+    margin: 0;
+    position: absolute;
+    top: -45%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+.player-count{
+    display: inline;
+    font-family: "hp";
+    font-size: 23px;
+    text-align: center;
+}
+
+.img-left{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.max-players{
+    display: inline;
+    font-family: "hp";
+    font-size: 23px;
+    text-align: center;
+    
+}
+
+.server-icon{
+    border-radius: 10px;
+}
 
 @media(max-width:700px){
+
+    .header{
+        overflow-x: hidden;
+    }
+
     .text-box h1{
         font-size: 40px;
     }
@@ -159,5 +220,23 @@ nav .fa-regular{
         padding: 30px;
     }
 
+    .ip{
+        font-size: 22px;
+        top: -15%;
+    }
 
+    .server-icon{
+        width: 60px;
+    }
+
+    .player-count{
+        display: inline-block;
+        font-size: 19px;
+    }
+
+    .max-players{
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+    }
 }

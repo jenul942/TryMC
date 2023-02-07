@@ -32,7 +32,19 @@
         </div>
     </section>
 
+    <!--Live Player Count-->
 
+    <section class="online-players">
+        <div class="update">
+            <div class="img-left"><img class="server-icon" src="https://cdn.pixabay.com/photo/2013/07/12/19/25/minecraft-154749_1280.png"  id="server-icon"/></div>
+            <div class="text-online">
+                <h1 id="server-ip" class="ip">144.91.94.157:8037</h1>
+                <span id="motd" class="description">A beautiful minecraft server</span>
+                <div class="player-count"><span id="player-count">290</span> Players Online</div>
+                <div class="max-players">From <span id="max-players">1000</span></div>
+            </div>
+        </div>
+    </section>
 
 <!------JavaScript for toggle Menu----  -->
 
@@ -42,11 +54,43 @@
 
         function showMenu(){
             navLinks.style.right="0";
+            document.getElementById("bar").style.visibility="hidden";
         }
 
         function hideMenu(){
             navLinks.style.right="-500px";
+            document.getElementById("bar").style.visibility="visible";
         }
+
+        function initServerData(serverIp,serverPort){
+            //function will take 2 parameters
+            console.log('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort);
+            fetch('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort)
+            .then(response => response.json())
+            .then(data => handleServerStatus(data));
+
+            function handleServerStatus(data){
+                if(data.status=='error'){
+                    console.log(data.error);
+                    return false;
+            }
+
+                const motd = document.getElementById("motd");
+                motd.innerHTML = data.motd;
+
+                const playerCounter = document.getElementById("player-count");
+                playerCounter.innerHTML = data.players.now;
+
+                const logo = document.getElementById("server-icon");
+                logo.src = data.favicon;
+
+                const maxPlayerCounter = document.getElementById("max-players");
+                maxPlayerCounter.innerHTML = data.players.max;
+
+            } 
+        }
+
+        initServerData("144.91.94.157","8037");
         
     </script>
 </body>
