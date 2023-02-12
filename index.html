@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Try MC</title>
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
+
 <body>
     <section class="header" id="header">
         <nav>
@@ -22,7 +24,7 @@
                     <li><a href="">About Us</a></li>
                 </ul>
             </div>
-                <i class="fa-regular fa-solid fa-bars" onclick="showMenu()" id="bar"></i>
+            <i class="fa-regular fa-solid fa-bars" onclick="showMenu()" id="bar"></i>
         </nav>
 
         <div class="text-box">
@@ -36,7 +38,9 @@
 
     <section class="online-players">
         <div class="update">
-            <div class="img-left"><img class="server-icon" src="https://cdn.pixabay.com/photo/2013/07/12/19/25/minecraft-154749_1280.png"  id="server-icon"/></div>
+            <div class="img-left"><img class="server-icon"
+                    src="https://cdn.pixabay.com/photo/2013/07/12/19/25/minecraft-154749_1280.png" id="server-icon" />
+            </div>
             <div class="text-online">
                 <h1 id="server-ip" class="ip">144.91.94.157:8037</h1>
                 <span id="motd" class="description">A beautiful minecraft server</span>
@@ -46,34 +50,75 @@
         </div>
     </section>
 
-<!------JavaScript for toggle Menu----  -->
+    <!--Footer-->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>links</h4>
+                    <ul>
+                        <li><a href="https://storetrysmp.tebex.io/">Store</a></li>
+                        <li><a href="#">vote</a></li>
+                        <li><a href="#">server ip</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>help</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/72yNq6zrAN">Discord Server</a></li>
+                        <li><a href="#">Staff</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>about us</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/channel/UCHhsFg3B39P_berXkgEJV6w"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/trysmpmc"><i class="fab fa-twitter"></i></a>
+                        <a href="https://discord.gg/72yNq6zrAN"><i class="fab fa-discord"></i></a>
+                        <a href="https://chat.whatsapp.com/B8gX0Rj6gEa6cTAP2dTWcy"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!------JavaScript for toggle Menu----  -->
 
     <script>
-        
+
         var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
-            navLinks.style.right="0";
-            document.getElementById("bar").style.visibility="hidden";
+        function showMenu() {
+            navLinks.style.right = "0";
+            document.getElementById("bar").style.visibility = "hidden";
         }
 
-        function hideMenu(){
-            navLinks.style.right="-500px";
-            document.getElementById("bar").style.visibility="visible";
+        function hideMenu() {
+            navLinks.style.right = "-500px";
+            document.getElementById("bar").style.visibility = "visible";
         }
 
-        function initServerData(serverIp,serverPort){
+        function initServerData(serverIp, serverPort) {
             //function will take 2 parameters
-            console.log('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort);
-            fetch('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort)
-            .then(response => response.json())
-            .then(data => handleServerStatus(data));
+            console.log('https://mcapi.us/server/status?ip=' + serverIp + '&port=' + serverPort);
+            fetch('https://mcapi.us/server/status?ip=' + serverIp + '&port=' + serverPort)
+                .then(response => response.json())
+                .then(data => handleServerStatus(data));
 
-            function handleServerStatus(data){
-                if(data.status=='error'){
+            function handleServerStatus(data) {
+                if (data.status == 'error') {
                     console.log(data.error);
                     return false;
-            }
+                }
 
                 const motd = document.getElementById("motd");
                 motd.innerHTML = data.motd;
@@ -87,11 +132,12 @@
                 const maxPlayerCounter = document.getElementById("max-players");
                 maxPlayerCounter.innerHTML = data.players.max;
 
-            } 
+            }
         }
 
-        initServerData("144.91.94.157","8037");
-        
+        initServerData("144.91.94.157", "8037");
+
     </script>
 </body>
+
 </html>
